@@ -14,6 +14,15 @@ object Exp2 {
   def calculateExp2Recursive(exponent: Int): Int = {
     if (exponent < 0) throw new IllegalArgumentException("The exponent cannot be negative")
     if (exponent == 0) return 1
-    calculateExp2Recursive(exponent - 1) + calculateExp2Recursive(exponent - 1)
+    2 * calculateExp2Recursive(exponent - 1)
+  }
+
+  /** Implements the efficient version of function on pg4 of the assignment
+    *
+    * @param exponent the exponent to which 2 needs to be raised
+    * @return The answer of the exponentiation
+    */
+  def calculateExp2(exponent: Int): Any = {
+    if (exponent < 0) throw new IllegalArgumentException("The exponent cannot be negative")
   }
 }

@@ -1,5 +1,7 @@
 package com.jetbrains.assignment
 
+import scala.math.pow
+
 
 /** Warm-Up exercise in the assignment - (implementation of exponentiation to power 2) */
 object Exp2 {
@@ -22,7 +24,9 @@ object Exp2 {
     * @param exponent the exponent to which 2 needs to be raised
     * @return The answer of the exponentiation
     */
-  def calculateExp2(exponent: Int): Any = {
+  def calculateExp2(exponent: Int): Int = {
     if (exponent < 0) throw new IllegalArgumentException("The exponent cannot be negative")
+    if (exponent == 0) return 1
+    pow(2, exponent).toInt
   }
 }

@@ -9,6 +9,8 @@ object Serializer {
     expression match {
       case _: True.type => "true"
       case _: False.type => "false"
+      case Variable(symbol) => s"""{"Symbol":"$symbol"}"""
+      case Not(e) => """{"Not":""" + parseToJson(e) +"""}"""
       case _ => throw new IllegalArgumentException("Illegal arguments passed")
     }
 

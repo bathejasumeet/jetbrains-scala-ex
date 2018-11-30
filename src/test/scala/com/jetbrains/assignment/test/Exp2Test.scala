@@ -1,7 +1,7 @@
 package com.jetbrains.assignment.test
 
+import com.jetbrains.assignment.warmup.Exp2
 import org.scalatest.FunSuite
-import com.jetbrains.assignment.Exp2
 
 class Exp2Test extends FunSuite {
 

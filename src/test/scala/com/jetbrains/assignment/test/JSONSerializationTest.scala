@@ -33,6 +33,10 @@ class JSONSerializationTest extends FunSuite {
     assert(Serializer.parseToJson(Not(False)) === """{"Not":false}""")
   }
 
+  test("The Serializer is called with Not for Variable") {
+    assert(Serializer.parseToJson(Not(Variable("sample"))) === """{"Not":{"Symbol":"sample"}}""")
+  }
+
   test("The Serializer is called with And for Primitive True/False without recursion") {
     assert(Serializer.parseToJson(And(True, False)) === """{"And":{"e1":true,"e2":false}}""")
   }

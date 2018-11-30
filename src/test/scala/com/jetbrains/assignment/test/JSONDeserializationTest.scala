@@ -54,4 +54,12 @@ class JSONDeserializationTest extends FunSuite {
     assert(Deserializer.parseToBooleanExpression("""{"Or":{"e1":true,"e2":{ "And":{"e1":{"Not":{"And": { "e1":true,"e2":false } }},"e2":{"Or":{"e1":{"Symbol":"123"},"e2":false}}}}}}""") === Or(True, And(Not(And(True, False)), Or(Variable("123"), False)))
     )
   }
+
+  test("Valid JSON that falls out of the scope of boolean expression classes specified") {
+    val exception = intercept[IllegalArgumentException] {
+      Deserializer.parseToBooleanExpression("""[true, true]""")
+    }
+    assert(exception.getMessage === "Expression is beyond the scope of Boolean Expression classes")
+
+  }
 }

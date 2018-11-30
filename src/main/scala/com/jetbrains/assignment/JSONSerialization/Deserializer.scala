@@ -23,6 +23,7 @@ object Deserializer {
     parsedJSON match {
       case JBool(value) => if (value) True else False
       case _: JObject => parseMap(parsedJSON.extract[Map[String, Any]])
+      case _ => throw new IllegalArgumentException("Expression is beyond the scope of Boolean Expression classes")
 
     }
 
@@ -52,8 +53,6 @@ object Deserializer {
 
       case "Not" =>
         val first = if (value.isInstanceOf[Map[String, Any]]) parseMap(value.asInstanceOf[map.type]) else value
-        print("first is")
-        print(first)
         Not(getOperand(first))
 
       case "Symbol" => value match {

@@ -4,7 +4,6 @@ import scala.math.pow
 
 /** Warm-Up exercise in the assignment - (implementation of exponentiation to power 2) */
 object Exp2 {
-  //TODO specify that you assumed the datatype to be integer, just in case
 
   /** Implements the recursive function on pg4 of the assignment, multiplying by 2 for simplification / reducing time
     * complexity

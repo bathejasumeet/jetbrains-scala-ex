@@ -1,11 +1,17 @@
 package com.jetbrains.assignment.JSONSerialization
 
-/** JSON Serializer for BooelanExpresison
+/** JSON Serializer for BooleanExpression
   *
+  * Converts a BooleanExpression Class to appropriate JSON string
   */
 object Serializer {
-  def parseToJson(expression: BooleanExpression): String = {
 
+  /** Parses BooleanExpression to JSON
+    *
+    * @param expression a BooleanExpression instance
+    * @return A JSON string
+    */
+  def parseToJson(expression: BooleanExpression): String = {
     expression match {
       case _: True.type => "true"
       case _: False.type => "false"

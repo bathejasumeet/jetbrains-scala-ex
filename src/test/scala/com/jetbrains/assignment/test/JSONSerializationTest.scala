@@ -10,7 +10,7 @@ class JSONSerializationTest extends FunSuite {
     val exception = intercept[IllegalArgumentException] {
       Serializer.parseToJson(null)
     }
-    assert(exception.getMessage === "Illegal arguments passed")
+    assert(exception.getMessage === "Illegal arguments passed for serialization")
   }
 
   test("The Serializer is called with True") {

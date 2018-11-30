@@ -50,5 +50,4 @@ class Exp2Test extends FunSuite {
   test("The optimised exp2 method is called with ten") {
     assert(Exp2.calculateExp2(10) === 1024)
   }
-
 }

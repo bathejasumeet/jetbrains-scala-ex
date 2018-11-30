@@ -22,5 +22,4 @@ object Serializer {
       case _ => throw new IllegalArgumentException("Illegal arguments passed")
     }
   }
-
 }

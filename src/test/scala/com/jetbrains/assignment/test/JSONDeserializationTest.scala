@@ -12,6 +12,19 @@ class JSONDeserializationTest extends FunSuite {
     assert(exception.getMessage === "Illegal arguments passed for deserialization")
   }
 
+  test("The Serializer is called with a Not with null") {
+    val exception = intercept[IllegalArgumentException] {
+      Deserializer.parseToBooleanExpression("""{"Not":null}""")
+    }
+    assert(exception.getMessage === "Wrong arguments to operator")
+  }
+
+  test("The Serializer is called with an And with nulls") {
+    val exception = intercept[IllegalArgumentException] {
+      Deserializer.parseToBooleanExpression("""{"And":{"e1":null,"e2":null}}""")
+    }
+    assert(exception.getMessage === "Wrong arguments to operator")
+  }
   test("Invalid JSON passed") {
     intercept[Exception] {
       Deserializer.parseToBooleanExpression("""{"a"}""")

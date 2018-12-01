@@ -69,6 +69,11 @@ object Deserializer {
     * @return arguments as a tuple
     */
   def getBinaryOperatorArguments(value: Any): (Any, Any) = {
+
+    if (null == value) {
+      throw new IllegalArgumentException("wrong arguments to binary operator")
+    }
+
     value match {
       case mapArgs: Map[String, Any] =>
         val listArgs = mapArgs.toList
@@ -76,9 +81,11 @@ object Deserializer {
           val (_, first) = listArgs.head
           val (_, second) = listArgs(1)
           return (first, second)
+        } else {
+          throw new IllegalArgumentException("wrong arguments to operator")
         }
     }
-    throw new IllegalArgumentException("wrong arguments to binary operator")
+
   }
 
   /** Get the 'JSON' operand in terms of BooleanExpression
@@ -87,6 +94,9 @@ object Deserializer {
     * @return equivalent BooleaExpression operand
     */
   def getOperand(operand: Any): BooleanExpression = {
+    if (null == operand) {
+      throw new IllegalArgumentException("Wrong arguments to operator")
+    }
     operand match {
       case true => True
       case false => False
@@ -107,15 +117,21 @@ object Deserializer {
     * @return unary operator argument
     */
   def getUnaryOperatorArguments(value: Any): Any = {
+    if (null == value) {
+      throw new IllegalArgumentException("Wrong arguments to operator")
+    }
+
     value match {
       case argsMap: Map[String, Any] =>
         val unaryOpArgs = argsMap.toList
         if (1 == unaryOpArgs.length) {
           val first = unaryOpArgs.head
           return first
+        } else {
+          throw new IllegalArgumentException("Wrong arguments to operator")
         }
     }
-    throw new IllegalArgumentException("wrong arguments to unary operator")
+
   }
 
 

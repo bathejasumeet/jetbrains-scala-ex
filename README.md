@@ -21,7 +21,7 @@ Please find the solution to this problem in the package
             + JSONSerialization
 
 `json4s` and pattern matching is used for serialization and deserialization. The serialization and deserialization both are
-carried taking into consideration the boundary conditions that the type `BooleanExpression` specified in the problem impose.
+carried taking into consideration the boundary conditions that the type `BooleanExpression` specified in the problem imposes.
 
 For serialization / Deserialization, following are the case-insensitive `Boolean-Expression : JSON` mappings:
 + `True -> true [primitive]`

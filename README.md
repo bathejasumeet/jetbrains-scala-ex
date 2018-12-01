@@ -1,6 +1,5 @@
 # jetbrains-scala-ex
-This is a repository that solves certain puzzles.
-It contains solution to 2 problems specified in the assignment.
+This is a repository that solves certain puzzles. It contains solution to 2 problems specified in the assignment.
 
 
 ## Warm-Up
